@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zamliy TCG - Store Display</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0a0a;
+            color: #fff;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 80px;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            pointer-events: none;
+        }
+
+        .slide.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Header bar */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: linear-gradient(90deg, #1a1a2e 0%, #16213e 100%);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 60px;
+            z-index: 100;
+            border-bottom: 3px solid #e94560;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #e94560;
+            letter-spacing: 2px;
+        }
+
+        .clock {
+            font-size: 2rem;
+            font-weight: 300;
+            color: #aaa;
+        }
+
+        /* Slide content */
+        h1 {
+            font-size: 5rem;
+            margin-bottom: 40px;
+            text-align: center;
+            color: #e94560;
+            text-shadow: 0 0 20px rgba(233, 69, 96, 0.3);
+        }
+
+        h2 {
+            font-size: 3.5rem;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+
+        .event-list {
+            list-style: none;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .event-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid #e94560;
+            padding: 25px 35px;
+            margin-bottom: 20px;
+            border-radius: 0 8px 8px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .event-name {
+            font-size: 2.2rem;
+            font-weight: 600;
+        }
+
+        .event-time {
+            font-size: 1.8rem;
+            color: #aaa;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #e94560;
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-left: 15px;
+        }
+
+        .tag.premium {
+            background: #f9a826;
+        }
+
+        .tag.new {
+            background: #00d9ff;
+        }
+
+        .release-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            width: 100%;
+            max-width: 1200px;
+            margin-top: 20px;
+        }
+
+        .release-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .release-game {
+            font-size: 1.5rem;
+            color: #aaa;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .release-name {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .release-date {
+            font-size: 1.8rem;
+            color: #e94560;
+            font-weight: 600;
+        }
+
+        .info-box {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 50px;
+            max-width: 900px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .info-box p {
+            font-size: 2rem;
+            line-height: 1.6;
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+
+        .social-handle {
+            font-size: 2.5rem;
+            color: #00d9ff;
+            font-weight: 600;
+            margin-top: 30px;
+        }
+
+        /* Progress bar */
+        .progress-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            height: 6px;
+            background: #e94560;
+            transition: width 0.1s linear;
+            z-index: 100;
+        }
+
+        /* Slide indicators */
+        .indicators {
+            position: fixed;
+            bottom: 30px;
+            right: 60px;
+            display: flex;
+            gap: 15px;
+            z-index: 100;
+        }
+
+        .indicator {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transition: background 0.3s;
+        }
+
+        .indicator.active {
+            background: #e94560;
+        }
+
+        /* Responsive for TV */
+        @media (min-width: 1920px) {
+            h1 { font-size: 6rem; }
+            h2 { font-size: 4rem; }
+            .event-name { font-size: 2.5rem; }
+            .event-time { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">ZAMLIY TCG</div>
+        <div class="clock" id="clock">--:--</div>
+    </div>
+
+    <!-- Slide 1: Weekly Events -->
+    <div class="slide active">
+        <h1>This Week's Events</h1>
+        <ul class="event-list">
+            <li class="event-item">
+                <span class="event-name">Friday Night Magic</span>
+                <span class="event-time">Fridays 7:00 PM</span>
+            </li>
+            <li class="event-item">
+                <span class="event-name">Commander Saturday</span>
+                <span class="event-time">Saturdays 2:00 PM</span>
+            </li>
+            <li class="event-item">
+                <span class="event-name">One Piece TCG Casual</span>
+                <span class="event-time">Sundays 3:00 PM</span>
+            </li>
+            <li class="event-item">
+                <span class="event-name">Draft Night</span>
+                <span class="event-time">Wednesdays 7:00 PM</span>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Slide 2: Upcoming Releases -->
+    <div class="slide">
+        <h1>Upcoming Releases</h1>
+        <div class="release-grid">
+            <div class="release-card">
+                <div class="release-game">Magic: The Gathering</div>
+                <div class="release-name">Aetherdrift</div>
+                <div class="release-date">January 2026</div>
+            </div>
+            <div class="release-card">
+                <div class="release-game">One Piece TCG</div>
+                <div class="release-name">OP-10</div>
+                <div class="release-date">TBD 2026</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 3: Store Info -->
+    <div class="slide">
+        <h1>Store Info</h1>
+        <div class="info-box">
+            <p>Buy, sell, and trade Magic & One Piece TCG</p>
+            <p>Singles, sealed products, and accessories</p>
+            <p>Event entry: $5-15 (prize support included)</p>
+            <p style="margin-top: 40px; font-size: 2.5rem; color: #fff;">Follow Us</p>
+            <div class="social-handle">@zamlily_tcg</div>
+        </div>
+    </div>
+
+    <!-- Slide 4: Calendar (Placeholder for integration) -->
+    <div class="slide">
+        <h1>July 2026 Calendar</h1>
+        <ul class="event-list">
+            <li class="event-item">
+                <span class="event-name">Prerelease Weekend</span>
+                <span class="event-time">July 11-12 <span class="tag premium">Special</span></span>
+            </li>
+            <li class="event-item">
+                <span class="event-name">Commander League</span>
+                <span class="event-time">Every Saturday</span>
+            </li>
+            <li class="event-item">
+                <span class="event-name">Store Championship</span>
+                <span class="event-time">July 25 <span class="tag">Tournament</span></span>
+            </li>
+        </ul>
+    </div>
+
+    <div class="progress-bar" id="progress"></div>
+    <div class="indicators" id="indicators"></div>
+
+    <script>
+        // Clock
+        function updateClock() {
+            const now = new Date();
+            const time = now.toLocaleTimeString('en-US', {
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: true
+            });
+            document.getElementById('clock').textContent = time;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // Slideshow
+        const slides = document.querySelectorAll('.slide');
+        const indicatorsContainer = document.getElementById('indicators');
+        const progressBar = document.getElementById('progress');
+        let currentSlide = 0;
+        const slideDuration = 15000; // 15 seconds per slide
+        let progressInterval;
+        let progressWidth = 0;
+
+        // Create indicators
+        slides.forEach((_, i) => {
+            const dot = document.createElement('div');
+            dot.className = 'indicator' + (i === 0 ? ' active' : '');
+            indicatorsContainer.appendChild(dot);
+        });
+
+        const indicators = document.querySelectorAll('.indicator');
+
+        function showSlide(index) {
+            slides.forEach(s => s.classList.remove('active'));
+            indicators.forEach(i => i.classList.remove('active'));
+            
+            slides[index].classList.add('active');
+            indicators[index].classList.add('active');
+            
+            // Reset progress
+            progressWidth = 0;
+            progressBar.style.width = '0%';
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function updateProgress() {
+            progressWidth += (100 / (slideDuration / 100));
+            progressBar.style.width = progressWidth + '%';
+        }
+
+        // Auto-advance
+        setInterval(nextSlide, slideDuration);
+        setInterval(updateProgress, 100);
+
+        // Keyboard navigation (for testing)
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') {
+                currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+                showSlide(currentSlide);
+            }
+        });
+    </script>
+</body>
+</html>
