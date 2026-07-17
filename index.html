@@ -220,6 +220,29 @@
             letter-spacing: 1px;
         }
 
+        .discord-qr {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            text-align: center;
+            z-index: 10;
+        }
+
+        .discord-qr img {
+            width: 90px;
+            height: 90px;
+            border-radius: 8px;
+            background: #fff;
+            padding: 5px;
+        }
+
+        .discord-qr .qr-label {
+            font-size: 0.75rem;
+            color: #aaa;
+            margin-top: 5px;
+            letter-spacing: 0.5px;
+        }
+
         /* Progress bar */
         .progress-bar {
             position: fixed;
@@ -304,6 +327,10 @@
                 <span class="event-time">Fridays 6:30 PM • FREE</span>
             </li>
         </ul>
+        <div class="discord-qr">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://discord.gg/YmqH56WCB8" alt="Discord QR">
+            <div class="qr-label">Join our Discord</div>
+        </div>
     </div>
 
     <!-- Slide 2: Upcoming Releases -->
@@ -326,14 +353,9 @@
                 <div class="release-date">Coming Soon</div>
             </div>
         </div>
-    </div>
-
-    <!-- Slide 3: Store Info -->
-    <div class="slide">
-        <h1>Join Our Discord</h1>
-        <div class="qr-code">
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://discord.gg/YmqH56WCB8" alt="Discord QR Code">
-            <div class="qr-label">discord.gg/YmqH56WCB8</div>
+        <div class="discord-qr">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://discord.gg/YmqH56WCB8" alt="Discord QR">
+            <div class="qr-label">Join our Discord</div>
         </div>
     </div>
 
@@ -354,6 +376,10 @@
                 <span class="event-time">Top-heavy payout + participation pack</span>
             </li>
         </ul>
+        <div class="discord-qr">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://discord.gg/YmqH56WCB8" alt="Discord QR">
+            <div class="qr-label">Join our Discord</div>
+        </div>
     </div>
 
     <div class="progress-bar" id="progress"></div>
