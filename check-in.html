@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>Zamliy TCG — Magic Check-In</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    width: 100%; height: 100%;
+    background: #0d0d12;
+    color: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    overflow: hidden;
+  }
+  .container {
+    width: 100vw; height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px;
+  }
+  .header {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    padding: 40px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .brand {
+    font-size: 2.4em;
+    font-weight: 800;
+    letter-spacing: 1px;
+  }
+  .brand span { color: #4a148c; }
+  .event-date {
+    font-size: 1.6em;
+    color: #aaa;
+    font-weight: 600;
+  }
+  .main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+  .title {
+    font-size: 4.2em;
+    font-weight: 900;
+    letter-spacing: 2px;
+  }
+  .subtitle {
+    font-size: 2em;
+    color: #bbb;
+    font-weight: 600;
+    margin-top: -20px;
+  }
+  .qr-wrap {
+    background: #fff;
+    padding: 30px;
+    border-radius: 24px;
+    box-shadow: 0 12px 60px rgba(0,0,0,0.5);
+  }
+  #qrcode { width: 420px; height: 420px; }
+  #qrcode img, #qrcode canvas {
+    width: 420px !important; height: 420px !important;
+    display: block;
+  }
+  .code-box {
+    background: #1a1a2e;
+    border: 4px solid #4a148c;
+    border-radius: 18px;
+    padding: 30px 80px;
+  }
+  .code-label {
+    font-size: 1.4em;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+  .code-value {
+    font-size: 6em;
+    font-weight: 900;
+    font-family: 'Courier New', Courier, monospace;
+    letter-spacing: 12px;
+    color: #fff;
+  }
+  .instructions {
+    font-size: 1.8em;
+    color: #bbb;
+    max-width: 1000px;
+    line-height: 1.5;
+  }
+  .footer {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 30px 60px;
+    font-size: 1.4em;
+    color: #666;
+    text-align: center;
+  }
+  .mana-strip {
+    position: absolute;
+    bottom: 90px;
+    display: flex;
+    gap: 14px;
+  }
+  .mana {
+    width: 46px; height: 46px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 900; font-size: 1.2em;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.4);
+  }
+  .mana-w { background: #f7f5a0; color: #1a1a2e; }
+  .mana-u { background: #4a86e8; color: #fff; }
+  .mana-b { background: #1a1a2e; color: #fff; border: 2px solid #555; }
+  .mana-r { background: #d93025; color: #fff; }
+  .mana-g { background: #2e7d32; color: #fff; }
+  .error-banner {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: #8b0000;
+    color: #fff;
+    padding: 40px 80px;
+    border-radius: 16px;
+    font-size: 2em;
+    display: none;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <div class="brand">ZAMLIY <span>TCG</span></div>
+    <div class="event-date" id="dateDisplay"></div>
+  </div>
+
+  <div class="main">
+    <div>
+      <div class="title">Magic Event Check-In</div>
+      <div class="subtitle">Scan to sign in with the Companion App</div>
+    </div>
+
+    <div class="qr-wrap">
+      <div id="qrcode"></div>
+    </div>
+
+    <div class="code-box">
+      <div class="code-label">Event Code</div>
+      <div class="code-value" id="codeDisplay">ABC123</div>
+    </div>
+
+    <div class="instructions" id="instructions">
+      Open the Magic Companion App, tap <strong>Join Event</strong>,<br>
+      then scan the code above or enter the event code.
+    </div>
+  </div>
+
+  <div class="mana-strip">
+    <div class="mana mana-w">W</div>
+    <div class="mana mana-u">U</div>
+    <div class="mana mana-b">B</div>
+    <div class="mana mana-r">R</div>
+    <div class="mana mana-g">G</div>
+  </div>
+
+  <div class="footer">
+    No Companion App? Ask a staff member to check you in manually.
+  </div>
+</div>
+
+<div class="error-banner" id="errorBanner">Event code missing</div>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const code = (params.get('code') || '').toUpperCase().trim();
+  const dateString = params.get('date') || '';
+
+  function formatDate(s) {
+    if (!s) return '';
+    const d = new Date(s + 'T00:00:00');
+    if (isNaN(d)) return s;
+    return d.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+  }
+
+  if (!code) {
+    document.getElementById('errorBanner').style.display = 'block';
+  } else {
+    document.getElementById('codeDisplay').textContent = code;
+    document.getElementById('dateDisplay').textContent = formatDate(dateString);
+
+    // Try to generate a QR code from the event code.
+    // For Magic Companion app, the ideal QR is the one from the Wizards event page.
+    // This generated code encodes the event code text so players can still scan it
+    // with a generic scanner, or enter the code manually.
+    if (typeof QRCode !== 'undefined') {
+      new QRCode(document.getElementById('qrcode'), {
+        text: code,
+        width: 420,
+        height: 420,
+        colorDark: '#000000',
+        colorLight: '#ffffff',
+        correctLevel: QRCode.CorrectLevel.M
+      });
+    } else {
+      document.getElementById('qrcode').innerHTML = '<div style="font-size:2em;color:#000;padding:40px;">QR code unavailable</div>';
+    }
+  }
+
+  // Auto-reload every 30s to pick up URL changes without manual refresh
+  setInterval(() => { location.reload(); }, 30000);
+</script>
+</body>
+</html>
