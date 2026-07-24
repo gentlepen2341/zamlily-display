@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
@@ -23,27 +23,35 @@
     flex-direction: column;
   }
   .header {
-    background: #2563eb;
-    color: #fff;
-    padding: 28px 50px;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 8vmin;
+    min-height: 44px;
+    background: linear-gradient(90deg, #2563eb 0%, #1d4ed8 100%);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 4vmin;
+    z-index: 100;
+    border-bottom: 2px solid #2563eb;
   }
   .brand {
-    font-size: 2.2em;
+    font-size: 3.6vmin;
     font-weight: 800;
-    letter-spacing: 0.5px;
+    color: #fff;
+    letter-spacing: 2px;
   }
   .brand-tagline {
-    font-size: 1.1em;
+    font-size: 1.8vmin;
+    color: #e0e0e0;
     font-style: italic;
-    opacity: 0.95;
-    margin-top: 2px;
+    margin-top: 0.2vmin;
   }
   .event-date {
-    font-size: 1.5em;
+    font-size: 2.2vmin;
     font-weight: 700;
+    color: #fff;
+    text-align: right;
   }
   .main {
     flex: 1;
@@ -51,85 +59,93 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 40px 50px 80px;
-    gap: 36px;
+    padding: 10vmin 4vmin 4vmin;
+    gap: 3vmin;
+    width: 100%;
   }
   .title-block {
     text-align: center;
   }
   .title {
-    font-size: 3.2em;
+    font-size: 6vmin;
     font-weight: 900;
-    color: #1a1a1a;
+    color: #1d4ed8;
     letter-spacing: 1px;
   }
   .subtitle {
-    font-size: 1.5em;
+    font-size: 2.4vmin;
     color: #555;
     font-weight: 600;
-    margin-top: 8px;
+    margin-top: 0.8vmin;
   }
   .card {
     background: #fff;
-    border-radius: 24px;
-    padding: 40px 70px;
-    box-shadow: 0 8px 40px rgba(0,0,0,0.10);
+    border-radius: 2.5vmin;
+    padding: 3.5vmin 6vmin;
+    box-shadow: 0 0.8vmin 3.5vmin rgba(0,0,0,0.10);
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 30px;
+    gap: 2.5vmin;
+    max-width: 92vw;
   }
   .qr-wrap {
     background: #fff;
-    padding: 18px;
-    border-radius: 16px;
-    border: 3px solid #e2e8f0;
+    padding: 1.2vmin;
+    border-radius: 1.5vmin;
+    border: 0.35vmin solid #e2e8f0;
   }
-  #qrcode { width: 320px; height: 320px; }
+  #qrcode {
+    width: 28vmin;
+    height: 28vmin;
+  }
   #qrcode img, #qrcode canvas {
-    width: 320px !important; height: 320px !important;
     display: block;
+    width: 100% !important;
+    height: 100% !important;
   }
   .code-section {
     text-align: center;
   }
   .code-label {
-    font-size: 1.1em;
+    font-size: 1.8vmin;
     color: #666;
     text-transform: uppercase;
-    letter-spacing: 4px;
+    letter-spacing: 0.4vmin;
     font-weight: 800;
-    margin-bottom: 10px;
+    margin-bottom: 0.8vmin;
   }
   .code-value {
-    font-size: 4.2em;
+    font-size: 4.5vmin;
     font-weight: 900;
     font-family: 'Courier New', Courier, monospace;
-    letter-spacing: 10px;
+    letter-spacing: 0.8vmin;
     color: #1a1a1a;
     background: #f1f5f9;
-    padding: 14px 36px;
-    border-radius: 12px;
+    padding: 1.2vmin 3vmin;
+    border-radius: 1vmin;
     display: inline-block;
+    min-width: 20vmin;
   }
   .instructions {
-    font-size: 1.35em;
+    font-size: 2vmin;
     color: #444;
     text-align: center;
-    max-width: 900px;
-    line-height: 1.5;
+    max-width: 85vw;
+    line-height: 1.4;
     font-weight: 500;
   }
   .mana-strip {
     display: flex;
-    gap: 12px;
+    gap: 1.2vmin;
   }
   .mana {
-    width: 40px; height: 40px;
+    width: 4vmin; height: 4vmin;
+    min-width: 24px; min-height: 24px;
     border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
-    font-weight: 900; font-size: 1.1em;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.18);
+    font-weight: 900; font-size: 1.6vmin;
+    box-shadow: 0 0.2vmin 0.6vmin rgba(0,0,0,0.18);
   }
   .mana-w { background: #f7f5a0; color: #1a1a2e; }
   .mana-u { background: #4a86e8; color: #fff; }
@@ -139,22 +155,22 @@
   .footer {
     background: #fff;
     color: #666;
-    font-size: 1.15em;
+    font-size: 1.6vmin;
     font-weight: 600;
     text-align: center;
-    padding: 22px 50px;
+    padding: 2vmin 4vmin;
     border-top: 1px solid #dbe3ef;
   }
-  .error-banner {
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    background: #8b0000;
-    color: #fff;
-    padding: 40px 80px;
-    border-radius: 16px;
-    font-size: 2em;
+  .placeholder-banner {
     display: none;
+    background: #fff3cd;
+    color: #856404;
+    padding: 2vmin 4vmin;
+    border-radius: 1vmin;
+    font-size: 2vmin;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 1vmin;
   }
 </style>
 </head>
@@ -198,6 +214,10 @@
       <div class="mana mana-r">R</div>
       <div class="mana mana-g">G</div>
     </div>
+
+    <div class="placeholder-banner" id="placeholderBanner">
+      No event code set — add ?code=XXXX to the URL
+    </div>
   </div>
 
   <div class="footer">
@@ -205,11 +225,9 @@
   </div>
 </div>
 
-<div class="error-banner" id="errorBanner">Event code missing</div>
-
 <script>
   const params = new URLSearchParams(window.location.search);
-  const code = (params.get('code') || '').toUpperCase().trim();
+  const rawCode = (params.get('code') || '').toUpperCase().trim();
   const dateString = params.get('date') || '';
 
   function formatDate(s) {
@@ -219,22 +237,28 @@
     return d.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
   }
 
-  if (!code) {
-    document.getElementById('errorBanner').style.display = 'block';
-  } else {
-    document.getElementById('codeDisplay').textContent = code;
-    document.getElementById('dateDisplay').textContent = formatDate(dateString);
+  document.getElementById('dateDisplay').textContent = formatDate(dateString);
 
-    if (typeof QRCode !== 'undefined') {
-      new QRCode(document.getElementById('qrcode'), {
-        text: code,
-        width: 320,
-        height: 320,
-        colorDark: '#000000',
-        colorLight: '#ffffff',
-        correctLevel: QRCode.CorrectLevel.M
-      });
-    }
+  const code = rawCode || 'ABC123';
+  document.getElementById('codeDisplay').textContent = code;
+
+  if (!rawCode) {
+    document.getElementById('placeholderBanner').style.display = 'block';
+  }
+
+  if (typeof QRCode !== 'undefined') {
+    const minDim = Math.min(window.innerWidth, window.innerHeight);
+    const qrSize = Math.round(minDim * 0.28);
+    document.getElementById('qrcode').style.width = qrSize + 'px';
+    document.getElementById('qrcode').style.height = qrSize + 'px';
+    new QRCode(document.getElementById('qrcode'), {
+      text: code,
+      width: qrSize,
+      height: qrSize,
+      colorDark: '#000000',
+      colorLight: '#ffffff',
+      correctLevel: QRCode.CorrectLevel.M
+    });
   }
 
   setInterval(() => { location.reload(); }, 30000);
