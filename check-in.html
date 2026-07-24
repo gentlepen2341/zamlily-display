@@ -7,7 +7,7 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <title>Zamliy TCG — Magic Check-In</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html, body {
@@ -95,14 +95,11 @@
     border-radius: 1.5vmin;
     border: 0.35vmin solid #e2e8f0;
   }
-  #qrcode {
+  #qrImage {
     width: 28vmin;
     height: 28vmin;
-  }
-  #qrcode img, #qrcode canvas {
+    object-fit: contain;
     display: block;
-    width: 100% !important;
-    height: 100% !important;
   }
   .code-section {
     text-align: center;
@@ -192,7 +189,7 @@
 
     <div class="card">
       <div class="qr-wrap">
-        <div id="qrcode"></div>
+        <img id="qrImage" src="images/DWDYMW5.png" alt="Event QR">
       </div>
 
       <div class="code-section">
@@ -243,25 +240,6 @@
 
   const code = rawCode || 'ABC123';
   document.getElementById('codeDisplay').textContent = code;
-
-  if (!rawCode) {
-    document.getElementById('placeholderBanner').style.display = 'block';
-  }
-
-  if (typeof QRCode !== 'undefined') {
-    const minDim = Math.min(window.innerWidth, window.innerHeight);
-    const qrSize = Math.round(minDim * 0.28);
-    document.getElementById('qrcode').style.width = qrSize + 'px';
-    document.getElementById('qrcode').style.height = qrSize + 'px';
-    new QRCode(document.getElementById('qrcode'), {
-      text: code,
-      width: qrSize,
-      height: qrSize,
-      colorDark: '#000000',
-      colorLight: '#ffffff',
-      correctLevel: QRCode.CorrectLevel.M
-    });
-  }
 
   setInterval(() => { location.reload(); }, 30000);
 </script>
