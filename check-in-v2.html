@@ -227,8 +227,10 @@
 
 <script>
   const params = new URLSearchParams(window.location.search);
-  const rawCode = (params.get('code') || '').toUpperCase().trim();
-  const dateString = params.get('date') || '';
+  const defaultCode = 'DWDYMW5';
+  const defaultDate = '2026-07-24';
+  const rawCode = (params.get('code') || defaultCode).toUpperCase().trim();
+  const dateString = params.get('date') || defaultDate;
 
   function formatDate(s) {
     if (!s) return '';
