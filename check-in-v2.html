@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>Zamliy TCG — Magic Check-In</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    width: 100%; height: 100%;
+    background: #eef2f7;
+    color: #1a1a1a;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    overflow: hidden;
+  }
+  .container {
+    width: 100vw; height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  .header {
+    background: #2563eb;
+    color: #fff;
+    padding: 28px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .brand {
+    font-size: 2.2em;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+  }
+  .brand-tagline {
+    font-size: 1.1em;
+    font-style: italic;
+    opacity: 0.95;
+    margin-top: 2px;
+  }
+  .event-date {
+    font-size: 1.5em;
+    font-weight: 700;
+  }
+  .main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 50px 80px;
+    gap: 36px;
+  }
+  .title-block {
+    text-align: center;
+  }
+  .title {
+    font-size: 3.2em;
+    font-weight: 900;
+    color: #1a1a1a;
+    letter-spacing: 1px;
+  }
+  .subtitle {
+    font-size: 1.5em;
+    color: #555;
+    font-weight: 600;
+    margin-top: 8px;
+  }
+  .card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 40px 70px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.10);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+  .qr-wrap {
+    background: #fff;
+    padding: 18px;
+    border-radius: 16px;
+    border: 3px solid #e2e8f0;
+  }
+  #qrcode { width: 320px; height: 320px; }
+  #qrcode img, #qrcode canvas {
+    width: 320px !important; height: 320px !important;
+    display: block;
+  }
+  .code-section {
+    text-align: center;
+  }
+  .code-label {
+    font-size: 1.1em;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-weight: 800;
+    margin-bottom: 10px;
+  }
+  .code-value {
+    font-size: 4.2em;
+    font-weight: 900;
+    font-family: 'Courier New', Courier, monospace;
+    letter-spacing: 10px;
+    color: #1a1a1a;
+    background: #f1f5f9;
+    padding: 14px 36px;
+    border-radius: 12px;
+    display: inline-block;
+  }
+  .instructions {
+    font-size: 1.35em;
+    color: #444;
+    text-align: center;
+    max-width: 900px;
+    line-height: 1.5;
+    font-weight: 500;
+  }
+  .mana-strip {
+    display: flex;
+    gap: 12px;
+  }
+  .mana {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 900; font-size: 1.1em;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.18);
+  }
+  .mana-w { background: #f7f5a0; color: #1a1a2e; }
+  .mana-u { background: #4a86e8; color: #fff; }
+  .mana-b { background: #1a1a2e; color: #fff; border: 2px solid #444; }
+  .mana-r { background: #d93025; color: #fff; }
+  .mana-g { background: #2e7d32; color: #fff; }
+  .footer {
+    background: #fff;
+    color: #666;
+    font-size: 1.15em;
+    font-weight: 600;
+    text-align: center;
+    padding: 22px 50px;
+    border-top: 1px solid #dbe3ef;
+  }
+  .error-banner {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: #8b0000;
+    color: #fff;
+    padding: 40px 80px;
+    border-radius: 16px;
+    font-size: 2em;
+    display: none;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <div>
+      <div class="brand">ZAMLIY TCG</div>
+      <div class="brand-tagline">"where pirates meet planeswalkers"</div>
+    </div>
+    <div class="event-date" id="dateDisplay"></div>
+  </div>
+
+  <div class="main">
+    <div class="title-block">
+      <div class="title">Magic Event Check-In</div>
+      <div class="subtitle">Scan the code with the Magic Companion App</div>
+    </div>
+
+    <div class="card">
+      <div class="qr-wrap">
+        <div id="qrcode"></div>
+      </div>
+
+      <div class="code-section">
+        <div class="code-label">Event Code</div>
+        <div class="code-value" id="codeDisplay">ABC123</div>
+      </div>
+    </div>
+
+    <div class="instructions">
+      Open the Companion App, tap <strong>Join Event</strong>, then scan the code above.
+      <br>
+      No app? Enter the event code manually or ask a staff member.
+    </div>
+
+    <div class="mana-strip">
+      <div class="mana mana-w">W</div>
+      <div class="mana mana-u">U</div>
+      <div class="mana mana-b">B</div>
+      <div class="mana mana-r">R</div>
+      <div class="mana mana-g">G</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    Check-in closes at 6:15 PM sharp • All events start at 6:30 PM
+  </div>
+</div>
+
+<div class="error-banner" id="errorBanner">Event code missing</div>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const code = (params.get('code') || '').toUpperCase().trim();
+  const dateString = params.get('date') || '';
+
+  function formatDate(s) {
+    if (!s) return '';
+    const d = new Date(s + 'T00:00:00');
+    if (isNaN(d)) return s;
+    return d.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+  }
+
+  if (!code) {
+    document.getElementById('errorBanner').style.display = 'block';
+  } else {
+    document.getElementById('codeDisplay').textContent = code;
+    document.getElementById('dateDisplay').textContent = formatDate(dateString);
+
+    if (typeof QRCode !== 'undefined') {
+      new QRCode(document.getElementById('qrcode'), {
+        text: code,
+        width: 320,
+        height: 320,
+        colorDark: '#000000',
+        colorLight: '#ffffff',
+        correctLevel: QRCode.CorrectLevel.M
+      });
+    }
+  }
+
+  setInterval(() => { location.reload(); }, 30000);
+</script>
+</body>
+</html>
