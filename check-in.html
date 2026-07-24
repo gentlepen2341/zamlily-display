@@ -12,8 +12,8 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html, body {
     width: 100%; height: 100%;
-    background: #0d0d12;
-    color: #fff;
+    background: #eef2f7;
+    color: #1a1a1a;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     overflow: hidden;
   }
@@ -21,111 +21,130 @@
     width: 100vw; height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 60px;
   }
   .header {
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    padding: 40px 60px;
+    background: #2563eb;
+    color: #fff;
+    padding: 28px 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
   .brand {
-    font-size: 2.4em;
+    font-size: 2.2em;
     font-weight: 800;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
   }
-  .brand span { color: #4a148c; }
+  .brand-tagline {
+    font-size: 1.1em;
+    font-style: italic;
+    opacity: 0.95;
+    margin-top: 2px;
+  }
   .event-date {
-    font-size: 1.6em;
-    color: #aaa;
-    font-weight: 600;
+    font-size: 1.5em;
+    font-weight: 700;
   }
   .main {
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 40px;
+    justify-content: center;
+    padding: 40px 50px 80px;
+    gap: 36px;
+  }
+  .title-block {
+    text-align: center;
   }
   .title {
-    font-size: 4.2em;
+    font-size: 3.2em;
     font-weight: 900;
-    letter-spacing: 2px;
+    color: #1a1a1a;
+    letter-spacing: 1px;
   }
   .subtitle {
-    font-size: 2em;
-    color: #bbb;
+    font-size: 1.5em;
+    color: #555;
     font-weight: 600;
-    margin-top: -20px;
+    margin-top: 8px;
+  }
+  .card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 40px 70px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.10);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
   }
   .qr-wrap {
     background: #fff;
-    padding: 30px;
-    border-radius: 24px;
-    box-shadow: 0 12px 60px rgba(0,0,0,0.5);
+    padding: 18px;
+    border-radius: 16px;
+    border: 3px solid #e2e8f0;
   }
-  #qrcode { width: 420px; height: 420px; }
+  #qrcode { width: 320px; height: 320px; }
   #qrcode img, #qrcode canvas {
-    width: 420px !important; height: 420px !important;
+    width: 320px !important; height: 320px !important;
     display: block;
   }
-  .code-box {
-    background: #1a1a2e;
-    border: 4px solid #4a148c;
-    border-radius: 18px;
-    padding: 30px 80px;
-  }
-  .code-label {
-    font-size: 1.4em;
-    color: #888;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    margin-bottom: 10px;
-    font-weight: 700;
-  }
-  .code-value {
-    font-size: 6em;
-    font-weight: 900;
-    font-family: 'Courier New', Courier, monospace;
-    letter-spacing: 12px;
-    color: #fff;
-  }
-  .instructions {
-    font-size: 1.8em;
-    color: #bbb;
-    max-width: 1000px;
-    line-height: 1.5;
-  }
-  .footer {
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    padding: 30px 60px;
-    font-size: 1.4em;
-    color: #666;
+  .code-section {
     text-align: center;
   }
+  .code-label {
+    font-size: 1.1em;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-weight: 800;
+    margin-bottom: 10px;
+  }
+  .code-value {
+    font-size: 4.2em;
+    font-weight: 900;
+    font-family: 'Courier New', Courier, monospace;
+    letter-spacing: 10px;
+    color: #1a1a1a;
+    background: #f1f5f9;
+    padding: 14px 36px;
+    border-radius: 12px;
+    display: inline-block;
+  }
+  .instructions {
+    font-size: 1.35em;
+    color: #444;
+    text-align: center;
+    max-width: 900px;
+    line-height: 1.5;
+    font-weight: 500;
+  }
   .mana-strip {
-    position: absolute;
-    bottom: 90px;
     display: flex;
-    gap: 14px;
+    gap: 12px;
   }
   .mana {
-    width: 46px; height: 46px;
+    width: 40px; height: 40px;
     border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
-    font-weight: 900; font-size: 1.2em;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.4);
+    font-weight: 900; font-size: 1.1em;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.18);
   }
   .mana-w { background: #f7f5a0; color: #1a1a2e; }
   .mana-u { background: #4a86e8; color: #fff; }
-  .mana-b { background: #1a1a2e; color: #fff; border: 2px solid #555; }
+  .mana-b { background: #1a1a2e; color: #fff; border: 2px solid #444; }
   .mana-r { background: #d93025; color: #fff; }
   .mana-g { background: #2e7d32; color: #fff; }
+  .footer {
+    background: #fff;
+    color: #666;
+    font-size: 1.15em;
+    font-weight: 600;
+    text-align: center;
+    padding: 22px 50px;
+    border-top: 1px solid #dbe3ef;
+  }
   .error-banner {
     position: absolute;
     top: 50%; left: 50%;
@@ -142,41 +161,47 @@
 <body>
 <div class="container">
   <div class="header">
-    <div class="brand">ZAMLIY <span>TCG</span></div>
+    <div>
+      <div class="brand">ZAMLIY TCG</div>
+      <div class="brand-tagline">"where pirates meet planeswalkers"</div>
+    </div>
     <div class="event-date" id="dateDisplay"></div>
   </div>
 
   <div class="main">
-    <div>
+    <div class="title-block">
       <div class="title">Magic Event Check-In</div>
-      <div class="subtitle">Scan to sign in with the Companion App</div>
+      <div class="subtitle">Scan the code with the Magic Companion App</div>
     </div>
 
-    <div class="qr-wrap">
-      <div id="qrcode"></div>
+    <div class="card">
+      <div class="qr-wrap">
+        <div id="qrcode"></div>
+      </div>
+
+      <div class="code-section">
+        <div class="code-label">Event Code</div>
+        <div class="code-value" id="codeDisplay">ABC123</div>
+      </div>
     </div>
 
-    <div class="code-box">
-      <div class="code-label">Event Code</div>
-      <div class="code-value" id="codeDisplay">ABC123</div>
+    <div class="instructions">
+      Open the Companion App, tap <strong>Join Event</strong>, then scan the code above.
+      <br>
+      No app? Enter the event code manually or ask a staff member.
     </div>
 
-    <div class="instructions" id="instructions">
-      Open the Magic Companion App, tap <strong>Join Event</strong>,<br>
-      then scan the code above or enter the event code.
+    <div class="mana-strip">
+      <div class="mana mana-w">W</div>
+      <div class="mana mana-u">U</div>
+      <div class="mana mana-b">B</div>
+      <div class="mana mana-r">R</div>
+      <div class="mana mana-g">G</div>
     </div>
-  </div>
-
-  <div class="mana-strip">
-    <div class="mana mana-w">W</div>
-    <div class="mana mana-u">U</div>
-    <div class="mana mana-b">B</div>
-    <div class="mana mana-r">R</div>
-    <div class="mana mana-g">G</div>
   </div>
 
   <div class="footer">
-    No Companion App? Ask a staff member to check you in manually.
+    Check-in closes at 6:15 PM sharp • All events start at 6:30 PM
   </div>
 </div>
 
@@ -200,25 +225,18 @@
     document.getElementById('codeDisplay').textContent = code;
     document.getElementById('dateDisplay').textContent = formatDate(dateString);
 
-    // Try to generate a QR code from the event code.
-    // For Magic Companion app, the ideal QR is the one from the Wizards event page.
-    // This generated code encodes the event code text so players can still scan it
-    // with a generic scanner, or enter the code manually.
     if (typeof QRCode !== 'undefined') {
       new QRCode(document.getElementById('qrcode'), {
         text: code,
-        width: 420,
-        height: 420,
+        width: 320,
+        height: 320,
         colorDark: '#000000',
         colorLight: '#ffffff',
         correctLevel: QRCode.CorrectLevel.M
       });
-    } else {
-      document.getElementById('qrcode').innerHTML = '<div style="font-size:2em;color:#000;padding:40px;">QR code unavailable</div>';
     }
   }
 
-  // Auto-reload every 30s to pick up URL changes without manual refresh
   setInterval(() => { location.reload(); }, 30000);
 </script>
 </body>
