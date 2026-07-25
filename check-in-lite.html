@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>Zamliy TCG — Magic Check-In</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    width: 100%; height: 100%;
+    background: #eef2f7;
+    color: #1a1a1a;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    overflow: hidden;
+  }
+  .container {
+    width: 100vw; height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  .header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 8vmin;
+    min-height: 44px;
+    background: #2563eb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 4vmin;
+    z-index: 100;
+  }
+  .brand {
+    font-size: 3.6vmin;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: 2px;
+  }
+  .event-date {
+    font-size: 2.2vmin;
+    font-weight: 700;
+    color: #fff;
+  }
+  .main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10vmin 4vmin 4vmin;
+    width: 100%;
+  }
+  .card {
+    background: #fff;
+    border-radius: 2.5vmin;
+    padding: 4vmin 6vmin;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5vmin;
+    max-width: 92vw;
+  }
+  #qrImage {
+    width: 30vmin;
+    height: 30vmin;
+    object-fit: contain;
+    display: block;
+  }
+  .code-label {
+    font-size: 2vmin;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.4vmin;
+    font-weight: 800;
+    text-align: center;
+  }
+  .code-value {
+    font-size: 6.5vmin;
+    font-weight: 900;
+    font-family: 'Courier New', Courier, monospace;
+    letter-spacing: 0.8vmin;
+    color: #1a1a1a;
+    background: #f1f5f9;
+    padding: 1.5vmin 4vmin;
+    border-radius: 1vmin;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <div class="brand">ZAMLIY TCG</div>
+    <div class="event-date" id="dateDisplay"></div>
+  </div>
+
+  <div class="main">
+    <div class="card">
+      <img id="qrImage" src="images/DWDYMW5.png" alt="Event QR">
+      <div class="code-label">Event Code</div>
+      <div class="code-value" id="codeDisplay">DWDYMW5</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const defaultCode = 'DWDYMW5';
+  const defaultDate = '2026-07-24';
+  const code = (params.get('code') || defaultCode).toUpperCase().trim();
+  const dateString = params.get('date') || defaultDate;
+
+  function formatDate(s) {
+    if (!s) return '';
+    const d = new Date(s + 'T00:00:00');
+    if (isNaN(d)) return s;
+    return d.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+  }
+
+  document.getElementById('dateDisplay').textContent = formatDate(dateString);
+  document.getElementById('codeDisplay').textContent = code;
+</script>
+</body>
+</html>
