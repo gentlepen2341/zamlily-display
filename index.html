@@ -345,6 +345,158 @@
             .logo { font-size: 2.2rem; }
             .clock { font-size: 1.7rem; }
         }
+
+        /* Promotional event slides */
+        .promo-slide {
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            text-align: center;
+            padding: 80px 50px 60px;
+        }
+
+        .promo-slide::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0,0,0,0.84) 0%, rgba(0,0,0,0.42) 50%, rgba(0,0,0,0.78) 100%);
+            z-index: 1;
+        }
+
+        .promo-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .promo-game-logo {
+            max-height: 70px;
+            width: auto;
+            max-width: 420px;
+            padding: 14px 28px;
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.45);
+            margin-bottom: 25px;
+        }
+
+        .promo-badge {
+            display: inline-block;
+            background: #f9a826;
+            color: #1a1a1a;
+            font-size: 1rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 8px 22px;
+            border-radius: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 20px rgba(249,168,38,0.45);
+            animation: pulse-glow 2.5s ease-in-out infinite;
+        }
+
+        .promo-badge.op-red {
+            background: #e63946;
+            color: #fff;
+            box-shadow: 0 4px 20px rgba(230,57,70,0.45);
+            animation: pulse-glow-red 2.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 4px 20px rgba(249,168,38,0.45); }
+            50% { box-shadow: 0 4px 32px rgba(249,168,38,0.75); }
+        }
+
+        @keyframes pulse-glow-red {
+            0%, 100% { box-shadow: 0 4px 20px rgba(230,57,70,0.45); }
+            50% { box-shadow: 0 4px 32px rgba(230,57,70,0.75); }
+        }
+
+        .promo-title {
+            font-size: 3.6rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 12px;
+            color: #fff;
+            text-shadow: 0 4px 25px rgba(0,0,0,0.7);
+            line-height: 1.1;
+        }
+
+        .promo-subtitle {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 35px;
+            color: rgba(255,255,255,0.95);
+            text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+        }
+
+        .promo-dates {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 35px;
+        }
+
+        .promo-date-card {
+            background: rgba(255,255,255,0.11);
+            border: 2px solid rgba(255,255,255,0.28);
+            border-radius: 18px;
+            padding: 22px 38px;
+            min-width: 220px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+        }
+
+        .promo-date-card .day {
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            opacity: 0.85;
+            margin-bottom: 6px;
+        }
+
+        .promo-date-card .date {
+            font-size: 2.2rem;
+            font-weight: 900;
+            margin-bottom: 6px;
+        }
+
+        .promo-date-card .time {
+            font-size: 1.3rem;
+            font-weight: 600;
+            opacity: 0.9;
+        }
+
+        .promo-cta {
+            font-size: 1.3rem;
+            font-weight: 700;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.32);
+            padding: 14px 34px;
+            border-radius: 40px;
+            backdrop-filter: blur(8px);
+        }
+
+        @media (min-width: 1920px) {
+            .promo-title { font-size: 4.5rem; }
+            .promo-subtitle { font-size: 2.2rem; }
+            .promo-date-card .date { font-size: 2.6rem; }
+            .promo-game-logo { max-height: 85px; }
+            .promo-badge { font-size: 1.2rem; }
+        }
+
+        @media (min-width: 3840px) {
+            .promo-title { font-size: 5.5rem; }
+            .promo-subtitle { font-size: 2.6rem; }
+            .promo-date-card { padding: 30px 50px; }
+            .promo-game-logo { max-height: 100px; }
+        }
     </style>
 </head>
 <body>
@@ -437,6 +589,47 @@
         <div class="discord-qr">
             <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://discord.gg/YmqH56WCB8" alt="Discord QR">
             <div class="qr-label">Join our Discord</div>
+        </div>
+    </div>
+
+    <!-- Slide 4: Hobbit Pre-Release -->
+    <div class="slide promo-slide" style="background-image: url('images/marketing/mtg-hobbit-keyart.jpg');">
+        <div class="promo-content">
+            <img src="logos/magic-logo.svg" alt="Magic: The Gathering" class="promo-game-logo">
+            <div class="promo-badge">Pre-Release</div>
+            <h1 class="promo-title">The Hobbit</h1>
+            <div class="promo-subtitle">Sealed Deck Pre-Release Events</div>
+            <div class="promo-dates">
+                <div class="promo-date-card">
+                    <div class="day">Friday</div>
+                    <div class="date">August 7</div>
+                    <div class="time">6:30 PM</div>
+                </div>
+                <div class="promo-date-card">
+                    <div class="day">Saturday</div>
+                    <div class="date">August 8</div>
+                    <div class="time">6:30 PM</div>
+                </div>
+            </div>
+            <div class="promo-cta">Sign up at the counter or on Discord</div>
+        </div>
+    </div>
+
+    <!-- Slide 5: One Piece OP-17 -->
+    <div class="slide promo-slide" style="background-image: url('images/marketing/onepiece-op17-item01.jpg');">
+        <div class="promo-content">
+            <img src="logos/onepiece-tcg-logo.png" alt="One Piece Card Game" class="promo-game-logo">
+            <div class="promo-badge op-red">Release Event</div>
+            <h1 class="promo-title">OP-17</h1>
+            <div class="promo-subtitle">The World's Strongest Warriors</div>
+            <div class="promo-dates">
+                <div class="promo-date-card">
+                    <div class="day">Thursday</div>
+                    <div class="date">August 27</div>
+                    <div class="time">6:30 PM</div>
+                </div>
+            </div>
+            <div class="promo-cta">Organized Play &bull; $8.99 entry</div>
         </div>
     </div>
 
