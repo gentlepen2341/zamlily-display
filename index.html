@@ -407,6 +407,22 @@
             animation: pulse-glow-red 2.5s ease-in-out infinite;
         }
 
+        .promo-badge.gold {
+            background: #ffcb05;
+            color: #1a1a1a;
+            box-shadow: 0 4px 16px rgba(255,203,5,0.4);
+            animation: pulse-glow 2.5s ease-in-out infinite;
+        }
+
+        .promo-keyart-logo {
+            max-height: 30vh;
+            max-width: 78vw;
+            width: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 6px 24px rgba(0,0,0,0.65));
+            margin-bottom: 12px;
+        }
+
         @keyframes pulse-glow {
             0%, 100% { box-shadow: 0 4px 16px rgba(249,168,38,0.45); }
             50% { box-shadow: 0 4px 26px rgba(249,168,38,0.75); }
@@ -562,21 +578,42 @@
         </div>
     </div>
 
-    <!-- Slide 3: One Piece OP-17 -->
-    <div class="slide promo-slide" style="background-image: url('images/marketing/onepiece-op17-item01.jpg'); background-size: contain; background-repeat: no-repeat; background-color: #151520;">
+    <!-- Slide 3: MTG Reality Fracture Pre-Release -->
+    <div class="slide promo-slide" style="background-image: url('images/marketing/mtg-reality-fracture-keyart.jpg');">
         <div class="promo-content">
-            <img src="logos/onepiece-tcg-logo.png" alt="One Piece Card Game" class="promo-game-logo">
-            <div class="promo-badge op-red">Release Event</div>
-            <h1 class="promo-title">OP-17</h1>
-            <div class="promo-subtitle">The World's Strongest Warriors</div>
+            <img src="logos/magic-logo.svg" alt="Magic: The Gathering" class="promo-game-logo">
+            <div class="promo-badge">Pre-Release</div>
+            <h1 class="promo-title">Reality Fracture</h1>
+            <div class="promo-subtitle">Pre-Release Events</div>
             <div class="promo-dates">
                 <div class="promo-date-card">
-                    <div class="day">Thursday</div>
-                    <div class="date">August 27</div>
+                    <div class="day">Friday</div>
+                    <div class="date">September 25</div>
+                    <div class="time">6:30 PM</div>
+                </div>
+                <div class="promo-date-card">
+                    <div class="day">Saturday</div>
+                    <div class="date">September 26</div>
                     <div class="time">6:30 PM</div>
                 </div>
             </div>
-            <div class="promo-cta">Sign in at the official Bandai TCG+ app starting August 1st</div>
+            <div class="promo-cta">Sign up in person or online at zamliytcg.com</div>
+        </div>
+    </div>
+
+    <!-- Slide 4: Pokémon TCG 30th Celebration -->
+    <div class="slide promo-slide" style="background: radial-gradient(ellipse 1400px 700px at 50% 115%, rgba(200,16,46,0.38) 0%, rgba(200,16,46,0) 62%), linear-gradient(165deg, #101018 0%, #1b1230 55%, #1c0a12 100%);">
+        <div class="promo-content">
+            <div class="promo-badge gold">New Release</div>
+            <img src="images/marketing/pokemon-30th-logo.png" alt="Pokémon TCG: 30th Celebration" class="promo-keyart-logo">
+            <div class="promo-subtitle">Celebrating 30 years of the Pokémon Trading Card Game</div>
+            <div class="promo-dates">
+                <div class="promo-date-card">
+                    <div class="day">Wednesday</div>
+                    <div class="date">September 16</div>
+                    <div class="time">In stores at Zamliy TCG</div>
+                </div>
+            </div>
         </div>
     </div>
 
