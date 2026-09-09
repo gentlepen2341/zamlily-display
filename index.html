@@ -126,6 +126,18 @@
             font-size: 1.2rem;
             font-weight: 700;
             color: #1a1a1a;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .game-lead {
+            font-weight: 900;
+            letter-spacing: 0.5px;
+        }
+
+        .event-name .event-logo {
+            margin: 0;
         }
 
         .event-time {
@@ -533,23 +545,27 @@
         <p style="color: #555; font-size: 1.1rem; margin-bottom: 15px;">Weekday events at 6:30 PM • Sunday at 3:00 PM • Check-in 15 minutes before</p>
         <ul class="event-list">
             <li class="event-item">
-                <span class="event-name">Lorcana & Riftbound <img src="logos/disney-lorcana-logo.png" alt="Lorcana" class="event-logo"> <span class="tag premium">Tournament</span></span>
+                <span class="event-name"><img src="logos/disney-lorcana-logo.png" alt="Lorcana" class="event-logo"> Lorcana <span class="tag premium">Tournament</span></span>
                 <span class="event-time">Tuesdays 6:30 PM • $8.99</span>
             </li>
             <li class="event-item">
-                <span class="event-name">Casual Commander Night <img src="logos/magic-logo.svg" alt="Magic" class="event-logo"> <span class="tag">MTG</span></span>
+                <span class="event-name"><span class="game-lead">Riftbound</span> <span class="tag premium">Tournament</span></span>
+                <span class="event-time">Tuesdays 6:30 PM • $8.99</span>
+            </li>
+            <li class="event-item">
+                <span class="event-name"><img src="logos/magic-logo.svg" alt="Magic" class="event-logo"> Casual Commander Night <span class="tag">MTG</span></span>
                 <span class="event-time">Wednesdays 6:30 PM • FREE</span>
             </li>
             <li class="event-item">
-                <span class="event-name">Organized One Piece Event <img src="logos/onepiece-tcg-logo.png" alt="One Piece" class="event-logo"> <span class="tag premium">Tournament</span></span>
+                <span class="event-name"><img src="logos/onepiece-tcg-logo.png" alt="One Piece" class="event-logo"> Organized One Piece Event <span class="tag premium">Tournament</span></span>
                 <span class="event-time">Thursdays 6:30 PM • $8.99</span>
             </li>
             <li class="event-item">
-                <span class="event-name">Casual Commander Night <img src="logos/magic-logo.svg" alt="Magic" class="event-logo"> <span class="tag">MTG</span></span>
+                <span class="event-name"><img src="logos/magic-logo.svg" alt="Magic" class="event-logo"> Casual Commander Night <span class="tag">MTG</span></span>
                 <span class="event-time">Fridays 6:30 PM • FREE</span>
             </li>
             <li class="event-item">
-                <span class="event-name">Organized One Piece Event <img src="logos/onepiece-tcg-logo.png" alt="One Piece" class="event-logo"> <span class="tag premium">Tournament</span></span>
+                <span class="event-name"><img src="logos/onepiece-tcg-logo.png" alt="One Piece" class="event-logo"> Organized One Piece Event <span class="tag premium">Tournament</span></span>
                 <span class="event-time">Sundays 3:00 PM • $8.99</span>
             </li>
         </ul>
