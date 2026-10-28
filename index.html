@@ -514,6 +514,32 @@
             max-width: 90%;
         }
 
+        /* Left-aligned promo variant: key art / logo lockup sits on the right */
+        .promo-slide.promo-left {
+            align-items: flex-start;
+            text-align: left;
+            padding-left: 90px;
+        }
+
+        .promo-slide.promo-left .promo-content {
+            align-items: flex-start;
+            max-width: 40%;
+        }
+
+        .promo-slide.promo-left .promo-title,
+        .promo-slide.promo-left .promo-subtitle {
+            text-align: left;
+        }
+
+        .promo-slide.promo-left .promo-dates {
+            justify-content: flex-start;
+        }
+
+        .promo-slide.promo-left .promo-cta {
+            max-width: none;
+            white-space: nowrap;
+        }
+
         @media (min-width: 1920px) {
             .promo-title { font-size: 2.6rem; }
             .promo-subtitle { font-size: 1.3rem; }
@@ -574,17 +600,22 @@
         </div>
     </div>
 
-    <!-- Slide 2: MTG Reality Fracture Commander Party -->
-    <div class="slide promo-slide" style="background-image: url('images/marketing/mtg-reality-fracture-keyart.jpg');">
+    <!-- Slide 2: One Piece Heroines Edition Vol. 2 (EB-05) -->
+    <div class="slide promo-slide promo-left" style="background-image: url('images/marketing/onepiece-heroines-eb05-keyart.jpg');">
         <div class="promo-content">
-            <img src="logos/magic-logo.svg" alt="Magic: The Gathering" class="promo-game-logo">
-            <div class="promo-badge">Commander Party</div>
-            <h1 class="promo-title">Reality Fracture</h1>
-            <div class="promo-subtitle">Bring your favorite Commander deck</div>
+            <img src="logos/onepiece-tcg-logo.png" alt="One Piece Card Game" class="promo-game-logo">
+            <div class="promo-badge">Prerelease + Heroines Battles</div>
+            <h1 class="promo-title">Heroines Edition Vol. 2</h1>
+            <div class="promo-subtitle">One Piece Card Game &middot; EB-05</div>
             <div class="promo-dates">
                 <div class="promo-date-card">
-                    <div class="day">Friday</div>
-                    <div class="date">October 2</div>
+                    <div class="day">Friday &middot; Prerelease</div>
+                    <div class="date">October 30</div>
+                    <div class="time">6:30 PM</div>
+                </div>
+                <div class="promo-date-card">
+                    <div class="day">Heroines Battles</div>
+                    <div class="date">Nov 7 &amp; Nov 12</div>
                     <div class="time">6:30 PM</div>
                 </div>
             </div>
@@ -592,7 +623,60 @@
         </div>
     </div>
 
-    <!-- Slide 4: Weekly Event Schedule (copy) -->
+    <!-- Slide 3: Magic Presents - All Leylines' Eve (Halloween Chaos Draft) -->
+    <div class="slide promo-slide" style="background-image: url('images/marketing/mtg-all-leylines-eve-keyart.jpg');">
+        <div class="promo-content">
+            <img src="logos/magic-logo.svg" alt="Magic: The Gathering" class="promo-game-logo">
+            <div class="promo-badge">Halloween Chaos Draft</div>
+            <h1 class="promo-title">All Leylines&rsquo; Eve</h1>
+            <div class="promo-subtitle">Spooky Chaos Draft &middot; every player gets a Leyline of Anticipation promo</div>
+            <div class="promo-dates">
+                <div class="promo-date-card">
+                    <div class="day">Saturday</div>
+                    <div class="date">October 31</div>
+                    <div class="time">6:00 PM</div>
+                </div>
+            </div>
+            <div class="promo-cta">Sign up in person or online at zamliytcg.com</div>
+        </div>
+    </div>
+
+    <!-- Slide 4: MTG Star Trek Prerelease -->
+    <div class="slide promo-slide promo-left" style="background-image: url('images/marketing/mtg-star-trek-keyart.jpg');">
+        <div class="promo-content">
+            <div class="promo-badge">Prerelease</div>
+            <h1 class="promo-title">Star Trek</h1>
+            <div class="promo-subtitle">Magic: The Gathering | Star Trek</div>
+            <div class="promo-dates">
+                <div class="promo-date-card">
+                    <div class="day">Friday</div>
+                    <div class="date">November 6</div>
+                    <div class="time">6:00 PM</div>
+                </div>
+            </div>
+            <div class="promo-cta">Sign up in person or online at zamliytcg.com</div>
+        </div>
+    </div>
+
+    <!-- Slide 5: One Piece OP-18 The Dominance of God Prerelease -->
+    <div class="slide promo-slide promo-left" style="background-image: url('images/marketing/onepiece-op18-keyart.jpg');">
+        <div class="promo-content">
+            <img src="logos/onepiece-tcg-logo.png" alt="One Piece Card Game" class="promo-game-logo">
+            <div class="promo-badge">Prerelease</div>
+            <h1 class="promo-title">The Dominance of God</h1>
+            <div class="promo-subtitle">One Piece Card Game &middot; OP-18</div>
+            <div class="promo-dates">
+                <div class="promo-date-card">
+                    <div class="day">Saturday</div>
+                    <div class="date">November 21</div>
+                    <div class="time">6:30 PM</div>
+                </div>
+            </div>
+            <div class="promo-cta">Sign up in person or online at zamliytcg.com</div>
+        </div>
+    </div>
+
+    <!-- Slide 6: Weekly Event Schedule (copy) -->
     <div class="slide">
         <h1>Weekly Event Schedule</h1>
         <ul class="event-list">
