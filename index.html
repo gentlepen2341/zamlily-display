@@ -336,6 +336,28 @@
             background: #2563eb;
         }
 
+        /* Short viewports: Fire TV panels report ~675px CSS height in the WebView */
+        @media (max-height: 800px) {
+            .slide { padding: 58px 36px 20px; }
+            h1 { font-size: 1.45rem; margin-bottom: 6px; }
+            .event-item { padding: 5px 14px; margin-bottom: 5px; }
+            .event-name { font-size: 0.95rem; }
+            .event-logo, .event-name .event-logo { max-height: 20px; }
+            .event-time { font-size: 0.82rem; }
+            .tag { font-size: 0.6rem; padding: 2px 7px; }
+            .discord-qr { margin-top: 8px; }
+            .discord-qr img { width: 56px; height: 56px; }
+            .discord-qr .qr-label { font-size: 0.55rem; }
+            .promo-title { font-size: 1.6rem; }
+            .promo-subtitle { font-size: 0.85rem; }
+            .promo-badge { font-size: 0.68rem; padding: 3px 10px; }
+            .promo-date-card { padding: 8px 16px; }
+            .promo-date-card .date { font-size: 1.05rem; }
+            .promo-date-card .time { font-size: 0.7rem; }
+            .promo-cta { font-size: 0.75rem; padding: 6px 14px; }
+            .promo-game-logo { max-height: 38px; margin-bottom: 8px; }
+        }
+
         /* Responsive for TV */
         @media (min-width: 1920px) {
             h1 { font-size: 3rem; }
