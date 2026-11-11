@@ -356,6 +356,16 @@
             .promo-date-card .time { font-size: 0.7rem; }
             .promo-cta { font-size: 0.75rem; padding: 6px 14px; }
             .promo-game-logo { max-height: 38px; margin-bottom: 8px; }
+            .holiday-flake { width: 26px; height: 26px; margin-bottom: 6px; }
+            .holiday-badge { font-size: 0.58rem; padding: 3px 12px; margin-bottom: 7px; }
+            .holiday-title { font-size: 1.45rem; letter-spacing: 3px; }
+            .holiday-subtitle { font-size: 0.62rem; margin-bottom: 10px; }
+            .holiday-list { margin-bottom: 8px; }
+            .holiday-list li { padding: 5px 2px; }
+            .h-date { font-size: 0.86rem; }
+            .h-note { font-size: 0.76rem; }
+            .holiday-note { font-size: 0.58rem; }
+            .phone-number { font-size: 2.6rem; margin-bottom: 10px; }
         }
 
         /* Responsive for TV */
@@ -536,6 +546,137 @@
             max-width: 90%;
         }
 
+        /* Holiday hours slide (minimalist seasonal) */
+        .holiday-slide {
+            background:
+                radial-gradient(circle at 18% 16%, rgba(255, 210, 120, 0.10) 0%, rgba(255, 210, 120, 0) 34%),
+                radial-gradient(circle at 84% 80%, rgba(120, 200, 170, 0.12) 0%, rgba(120, 200, 170, 0) 38%),
+                linear-gradient(158deg, #0b2b23 0%, #071812 55%, #04100b 100%);
+            color: #f4efe4;
+            text-align: center;
+        }
+
+        .holiday-slide::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                radial-gradient(rgba(255,255,255,0.55) 1px, transparent 1.6px),
+                radial-gradient(rgba(255,255,255,0.28) 1px, transparent 1.6px);
+            background-size: 190px 190px, 320px 320px;
+            background-position: 0 0, 90px 120px;
+            opacity: 0.18;
+            z-index: 1;
+        }
+
+        .holiday-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 1180px;
+        }
+
+        .holiday-flake {
+            width: 44px;
+            height: 44px;
+            color: rgba(244, 239, 228, 0.55);
+            margin-bottom: 10px;
+        }
+
+        .holiday-badge {
+            font-size: 0.72rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #e8c98a;
+            border: 1px solid rgba(232, 201, 138, 0.45);
+            border-radius: 30px;
+            padding: 5px 16px;
+            margin-bottom: 12px;
+        }
+
+        .holiday-title {
+            color: #f8f3e7;
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .holiday-subtitle {
+            font-size: 0.9rem;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: rgba(244, 239, 228, 0.55);
+            margin-bottom: 20px;
+        }
+
+        .holiday-list {
+            list-style: none;
+            width: 100%;
+            max-width: 900px;
+            margin-bottom: 18px;
+        }
+
+        .holiday-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 18px;
+            padding: 10px 4px;
+            border-bottom: 1px solid rgba(244, 239, 228, 0.14);
+        }
+
+        .holiday-list li:last-child {
+            border-bottom: none;
+        }
+
+        .h-date {
+            font-size: 1.18rem;
+            font-weight: 700;
+            color: #f8f3e7;
+            white-space: nowrap;
+        }
+
+        .h-note {
+            font-size: 1.02rem;
+            color: #e8c98a;
+            font-weight: 600;
+            letter-spacing: 0.4px;
+            text-align: right;
+        }
+
+        .holiday-note {
+            font-size: 0.82rem;
+            letter-spacing: 1.6px;
+            text-transform: uppercase;
+            color: rgba(244, 239, 228, 0.5);
+        }
+
+        /* New phone number slide */
+        .phone-slide {
+            background: linear-gradient(150deg, #12233f 0%, #0a1526 55%, #060d18 100%);
+        }
+
+        .phone-slide .promo-title {
+            letter-spacing: 1.5px;
+        }
+
+        .phone-number {
+            font-size: 4.2rem;
+            font-weight: 900;
+            letter-spacing: 4px;
+            color: #fff;
+            margin: 6px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(249, 168, 38, 0.55);
+            text-shadow: 0 6px 28px rgba(0,0,0,0.55);
+        }
+
         /* Left-aligned promo variant: key art / logo lockup sits on the right */
         .promo-slide.promo-left {
             align-items: flex-start;
@@ -569,6 +710,10 @@
             .promo-game-logo { max-height: 56px; }
             .promo-badge { font-size: 0.8rem; }
             .promo-cta { font-size: 1rem; }
+            .holiday-title { font-size: 2.8rem; }
+            .h-date { font-size: 1.4rem; }
+            .h-note { font-size: 1.15rem; }
+            .phone-number { font-size: 5rem; }
         }
 
         @media (min-width: 3840px) {
@@ -621,6 +766,7 @@
             <div class="qr-label">Join our Discord</div>
         </div>
     </div>
+
     <!-- Slide 2: One Piece Heroines Edition Vol. 2 (EB-05) -->
     <div class="slide promo-slide promo-left" style="background-image: url('images/marketing/onepiece-heroines-eb05-keyart.jpg');">
         <div class="promo-content">
@@ -642,22 +788,25 @@
             <div class="promo-cta">Sign up in person or online at zamliytcg.com</div>
         </div>
     </div>
-    <!-- Slide 3: MTG Star Trek Prerelease -->
-    <div class="slide promo-slide promo-left" style="background-image: url('images/marketing/mtg-star-trek-keyart.jpg');">
+
+    <!-- Slide 3: One Piece OP-18 The Dominance of God Prerelease -->
+    <div class="slide promo-slide promo-left" style="background-image: url('images/marketing/onepiece-op18-keyart.jpg');">
         <div class="promo-content">
+            <img src="logos/onepiece-tcg-logo.png" alt="One Piece Card Game" class="promo-game-logo">
             <div class="promo-badge">Prerelease</div>
-            <h1 class="promo-title">Star Trek</h1>
-            <div class="promo-subtitle">Magic: The Gathering | Star Trek</div>
+            <h1 class="promo-title">The Dominance of God</h1>
+            <div class="promo-subtitle">One Piece Card Game &middot; OP-18</div>
             <div class="promo-dates">
                 <div class="promo-date-card">
-                    <div class="day">Friday</div>
-                    <div class="date">November 6</div>
+                    <div class="day">Saturday</div>
+                    <div class="date">November 21</div>
                     <div class="time">6:00 PM</div>
                 </div>
             </div>
             <div class="promo-cta">Sign up in person or online at zamliytcg.com</div>
         </div>
     </div>
+
     <!-- Slide 4: Weekly Events (repeat) -->
     <div class="slide">
         <h1>Weekly Event Schedule</h1>
@@ -692,41 +841,53 @@
             <div class="qr-label">Join our Discord</div>
         </div>
     </div>
-    <!-- Slide 5: Pokemon TCG Delta Reign Release -->
-    <div class="slide promo-slide promo-left" style="background-image: url('images/marketing/pokemon-delta-reign-keyart.jpg');">
-        <div class="promo-content">
-            <img src="logos/pokemon-tcg-logo.png" alt="Pokémon Trading Card Game" class="promo-game-logo">
-            <div class="promo-badge gold">New Release</div>
-            <h1 class="promo-title">Delta Reign</h1>
-            <div class="promo-subtitle">Mega Evolution &middot; Mega Rayquaza ex</div>
-            <div class="promo-dates">
-                <div class="promo-date-card">
-                    <div class="day">Friday &middot; In Stores</div>
-                    <div class="date">November 6</div>
-                </div>
-            </div>
-            <div class="promo-cta">Available in store on release day</div>
-        </div>
-    </div>
-    <!-- Slide 6: One Piece OP-18 The Dominance of God Prerelease -->
-    <div class="slide promo-slide promo-left" style="background-image: url('images/marketing/onepiece-op18-keyart.jpg');">
-        <div class="promo-content">
-            <img src="logos/onepiece-tcg-logo.png" alt="One Piece Card Game" class="promo-game-logo">
-            <div class="promo-badge">Prerelease</div>
-            <h1 class="promo-title">The Dominance of God</h1>
-            <div class="promo-subtitle">One Piece Card Game &middot; OP-18</div>
-            <div class="promo-dates">
-                <div class="promo-date-card">
-                    <div class="day">Saturday</div>
-                    <div class="date">November 21</div>
-                    <div class="time">6:00 PM</div>
-                </div>
-            </div>
-            <div class="promo-cta">Sign up in person or online at zamliytcg.com</div>
+
+    <!-- Slide 5: Holiday Hours -->
+    <div class="slide holiday-slide">
+        <div class="holiday-content">
+            <svg class="holiday-flake" viewBox="0 0 100 100" aria-hidden="true">
+                <g stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none">
+                    <path d="M50 8v84M14 29l72 42M86 29L14 71"/>
+                    <path d="M50 18l-7 7M50 18l7 7M50 82l-7-7M50 82l7-7"/>
+                    <path d="M18 36l9-2M18 36l2 9M82 64l-9 2M82 64l-2-9"/>
+                    <path d="M82 36l-9-2M82 36l-2 9M18 64l9 2M18 64l2-9"/>
+                </g>
+            </svg>
+            <div class="holiday-badge">Holiday Hours</div>
+            <h1 class="holiday-title">Holiday Hours</h1>
+            <div class="holiday-subtitle">Zamliy TCG &middot; November &amp; December</div>
+            <ul class="holiday-list">
+                <li>
+                    <span class="h-date">Thu, Nov 26</span>
+                    <span class="h-note">Thanksgiving &middot; Closed</span>
+                </li>
+                <li>
+                    <span class="h-date">Thu &amp; Fri, Dec 24&ndash;25</span>
+                    <span class="h-note">Christmas &middot; Closed</span>
+                </li>
+                <li>
+                    <span class="h-date">Thu, Dec 31</span>
+                    <span class="h-note">New Year&rsquo;s Eve &middot; Close at 5:00 PM</span>
+                </li>
+                <li>
+                    <span class="h-date">Fri, Jan 1</span>
+                    <span class="h-note">New Year&rsquo;s Day &middot; Open at 2:00 PM</span>
+                </li>
+            </ul>
+            <div class="holiday-note">Happy holidays from all of us at Zamliy TCG</div>
         </div>
     </div>
 
-    
+    <!-- Slide 6: New Phone Number -->
+    <div class="slide promo-slide phone-slide">
+        <div class="promo-content">
+            <div class="promo-badge">New Number</div>
+            <h1 class="promo-title">We Have a New Phone Number</h1>
+            <div class="promo-subtitle">Call or text the shop &mdash; same crew, new digits</div>
+            <div class="phone-number">847.980.5028</div>
+            <div class="promo-cta">Save it in your contacts</div>
+        </div>
+    </div>
 
     <div class="progress-bar" id="progress"></div>
     <div class="indicators" id="indicators"></div>
