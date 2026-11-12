@@ -107,6 +107,7 @@
             list-style: none;
             width: 100%;
             max-width: 900px;
+            flex-shrink: 0;
         }
 
         .event-item {
@@ -657,6 +658,13 @@
             color: rgba(244, 239, 228, 0.5);
         }
 
+        /* Weekly draft night slide */
+        .draft-slide {
+            background:
+                radial-gradient(circle at 78% 20%, rgba(226, 105, 60, 0.16) 0%, rgba(226, 105, 60, 0) 46%),
+                linear-gradient(150deg, #2a1024 0%, #150a16 55%, #0a0509 100%);
+        }
+
         /* New phone number slide */
         .phone-slide {
             background: linear-gradient(150deg, #12233f 0%, #0a1526 55%, #060d18 100%);
@@ -757,6 +765,14 @@
                 <span class="event-time">Fridays 6:30 PM • FREE</span>
             </li>
             <li class="event-item">
+                <span class="event-name"><img src="logos/magic-logo.svg" alt="Magic" class="event-logo"> Draft Night <span class="tag">MTG</span></span>
+                <span class="event-time">Saturdays 6:00 PM • $29.99</span>
+            </li>
+            <li class="event-item">
+                <span class="event-name"><img src="logos/onepiece-tcg-logo.png" alt="One Piece" class="event-logo"> One Piece Locals <span class="tag">Casual</span></span>
+                <span class="event-time">Sundays 1:00 PM • $8.99</span>
+            </li>
+            <li class="event-item">
                 <span class="event-name"><img src="logos/onepiece-tcg-logo.png" alt="One Piece" class="event-logo"> Organized One Piece Event <span class="tag premium">Tournament</span></span>
                 <span class="event-time">Sundays 3:00 PM • $8.99</span>
             </li>
@@ -832,6 +848,14 @@
                 <span class="event-time">Fridays 6:30 PM • FREE</span>
             </li>
             <li class="event-item">
+                <span class="event-name"><img src="logos/magic-logo.svg" alt="Magic" class="event-logo"> Draft Night <span class="tag">MTG</span></span>
+                <span class="event-time">Saturdays 6:00 PM • $29.99</span>
+            </li>
+            <li class="event-item">
+                <span class="event-name"><img src="logos/onepiece-tcg-logo.png" alt="One Piece" class="event-logo"> One Piece Locals <span class="tag">Casual</span></span>
+                <span class="event-time">Sundays 1:00 PM • $8.99</span>
+            </li>
+            <li class="event-item">
                 <span class="event-name"><img src="logos/onepiece-tcg-logo.png" alt="One Piece" class="event-logo"> Organized One Piece Event <span class="tag premium">Tournament</span></span>
                 <span class="event-time">Sundays 3:00 PM • $8.99</span>
             </li>
@@ -842,7 +866,27 @@
         </div>
     </div>
 
-    <!-- Slide 5: Holiday Hours -->
+    <!-- Slide 5: MTG Draft Night -->
+    <div class="slide promo-slide draft-slide">
+        <div class="promo-content">
+            <img src="logos/magic-logo.svg" alt="Magic: The Gathering" class="promo-game-logo">
+            <div class="promo-badge">Every Saturday</div>
+            <h1 class="promo-title">Draft Night</h1>
+            <div class="promo-subtitle">Magic: The Gathering &middot; Booster Draft</div>
+            <div class="promo-dates">
+                <div class="promo-date-card">
+                    <div class="day">Every Saturday</div>
+                    <div class="date">6:00 PM</div>
+                </div>
+                <div class="promo-date-card">
+                    <div class="day">Entry</div>
+                    <div class="date">$29.99</div>
+                </div>
+            </div>
+            <div class="promo-cta">Sign up in person or online at zamliytcg.com</div>
+        </div>
+    </div>
+    <!-- Slide 6: Holiday Hours -->
     <div class="slide holiday-slide">
         <div class="holiday-content">
             <svg class="holiday-flake" viewBox="0 0 100 100" aria-hidden="true">
@@ -878,12 +922,12 @@
         </div>
     </div>
 
-    <!-- Slide 6: New Phone Number -->
+    <!-- Slide 7: New Phone Number -->
     <div class="slide promo-slide phone-slide">
         <div class="promo-content">
-            <div class="promo-badge">New Number</div>
-            <h1 class="promo-title">We Have a New Phone Number</h1>
-            <div class="promo-subtitle">Call or text</div>
+            <div class="promo-badge">Number Changed</div>
+            <h1 class="promo-title">Our Phone Number Has Changed</h1>
+            <div class="promo-subtitle">This is our only number &mdash; please update your contacts</div>
             <div class="phone-number">847.980.5028</div>
             <div class="promo-cta">Save it in your contacts</div>
         </div>
