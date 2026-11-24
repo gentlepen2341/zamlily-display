@@ -547,6 +547,229 @@
             max-width: 90%;
         }
 
+        /* Black Friday sale slide */
+        .bf-slide {
+            background:
+                radial-gradient(circle at 50% -10%, rgba(56, 132, 224, 0.18) 0%, rgba(56, 132, 224, 0) 55%),
+                linear-gradient(160deg, #141416 0%, #0c0c0e 60%, #08080a 100%);
+            color: #f4f0e6;
+        }
+
+        .bf-wrap {
+            width: min(94vw, 1560px);
+            display: flex;
+            flex-direction: column;
+            gap: min(1.5vh, 18px);
+        }
+
+        .bf-title {
+            font-size: min(12vw, 15.5vh);
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            line-height: 0.86;
+            text-transform: uppercase;
+            color: #f7f3e8;
+            margin: 0;
+            text-align: center;
+        }
+
+        .bf-when {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: min(1.4vw, 18px);
+            font-size: min(1.9vw, 3vh);
+            font-weight: 800;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #4aa3ff;
+        }
+
+        .bf-dash {
+            width: min(4vw, 60px);
+            height: 0.18em;
+            background: #4aa3ff;
+            flex: none;
+        }
+
+        .bf-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: min(1.3vw, 18px);
+        }
+
+        .bf-deal {
+            background: #1c1c1f;
+            border-radius: 10px;
+            padding: min(1.6vh, 22px) min(1.4vw, 24px);
+            text-align: left;
+        }
+
+        .bf-value {
+            font-size: min(4.6vw, 7.2vh);
+            text-transform: uppercase;
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            line-height: 1;
+            color: #4aa3ff;
+            margin-bottom: 0.12em;
+        }
+
+        .bf-value.cream { color: #f7f3e8; }
+
+        .bf-label {
+            font-size: min(1.5vw, 2.3vh);
+            font-weight: 800;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #f7f3e8;
+        }
+
+        .bf-sub {
+            font-size: min(1.15vw, 1.8vh);
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #8b8b92;
+            margin-top: 0.35em;
+        }
+
+        .bf-deckbar {
+            background: #2f8ef7;
+            color: #0b0b0d;
+            border-radius: 10px;
+            padding: min(1.5vh, 20px) min(1.6vw, 28px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: min(2vw, 30px);
+        }
+
+        .bf-deckeyebrow {
+            font-size: min(0.95vw, 1.5vh);
+            font-weight: 800;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            margin-bottom: 0.3em;
+        }
+
+        .bf-deckline {
+            font-size: min(2.1vw, 3.2vh);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.01em;
+            line-height: 1.05;
+        }
+
+        .bf-free {
+            font-size: min(5.4vw, 8.2vh);
+            font-weight: 900;
+            line-height: 0.85;
+            letter-spacing: -0.03em;
+            text-transform: uppercase;
+            flex: none;
+        }
+
+        .bf-stock {
+            border: 2px solid #3a3a3e;
+            border-radius: 10px;
+            padding: min(1.3vh, 18px) min(1.4vw, 24px);
+            display: flex;
+            align-items: center;
+            gap: min(1.6vw, 24px);
+        }
+
+        .bf-stocklabel {
+            font-size: min(1.55vw, 2.4vh);
+            font-weight: 900;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #4aa3ff;
+            white-space: nowrap;
+            padding-right: min(1.6vw, 24px);
+            border-right: 2px solid #3a3a3e;
+        }
+
+        .bf-stockitems {
+            font-size: min(1.3vw, 2vh);
+            font-weight: 600;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            line-height: 1.45;
+            color: #f7f3e8;
+        }
+
+        .bf-foot {
+            display: flex;
+            justify-content: space-between;
+            font-size: min(1.05vw, 1.7vh);
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #7e7e86;
+        }
+
+        /* Marvel Super Heroes draft slide */
+        .marvel-slide {
+            background:
+                radial-gradient(circle at 18% 12%, rgba(214, 38, 48, 0.38) 0%, rgba(214, 38, 48, 0) 55%),
+                radial-gradient(circle at 88% 88%, rgba(30, 90, 210, 0.38) 0%, rgba(30, 90, 210, 0) 55%),
+                linear-gradient(150deg, #1a0a0c 0%, #0d0a12 55%, #05060c 100%);
+            align-items: flex-start;
+            text-align: left;
+            padding-left: 7vw;
+        }
+
+        .marvel-slide .promo-content {
+            align-items: flex-start;
+            max-width: 42%;
+        }
+
+        .marvel-slide .promo-title,
+        .marvel-slide .promo-subtitle {
+            text-align: left;
+        }
+
+        .marvel-slide .promo-title {
+            font-size: min(4.4vw, 7vh);
+            letter-spacing: 0.01em;
+        }
+
+        .marvel-slide .promo-subtitle {
+            font-size: min(1.4vw, 2.2vh);
+        }
+
+        .marvel-slide .promo-dates {
+            justify-content: flex-start;
+        }
+
+        .marvel-slide .promo-cta {
+            max-width: none;
+            white-space: nowrap;
+        }
+
+        .marvel-cards {
+            position: absolute;
+            right: 4.5vw;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            align-items: center;
+            gap: min(0.9vw, 16px);
+            z-index: 2;
+        }
+
+        .marvel-cards img {
+            width: min(13.5vw, 28vh);
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 18px 50px rgba(0,0,0,0.75);
+            display: block;
+        }
+
+        .marvel-cards img:nth-child(1) { transform: rotate(-6deg) translateY(1.5vh); }
+        .marvel-cards img:nth-child(3) { transform: rotate(6deg) translateY(1.5vh); }
+
         /* Holiday hours slide (minimalist seasonal) */
         .holiday-slide {
             background:
@@ -779,48 +1002,110 @@
         </div>
     </div>
 
-    <!-- Slide 2: One Piece OP-18 The Dominance of God Prerelease -->
-    <div class="slide promo-slide promo-left" style="background-image: url('images/marketing/onepiece-op18-keyart.jpg');">
+    <!-- Slide 2: Holiday Hours -->
+    <div class="slide holiday-slide">
+        <div class="holiday-content">
+            <svg class="holiday-flake" viewBox="0 0 100 100" aria-hidden="true">
+                <g stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none">
+                    <path d="M50 8v84M14 29l72 42M86 29L14 71"/>
+                    <path d="M50 18l-7 7M50 18l7 7M50 82l-7-7M50 82l7-7"/>
+                    <path d="M18 36l9-2M18 36l2 9M82 64l-9 2M82 64l-2-9"/>
+                    <path d="M82 36l-9-2M82 36l-2 9M18 64l9 2M18 64l2-9"/>
+                </g>
+            </svg>
+            <div class="holiday-badge">Holiday Hours</div>
+            <h1 class="holiday-title">Holiday Hours</h1>
+            <div class="holiday-subtitle">Zamliy TCG &middot; November &amp; December</div>
+            <ul class="holiday-list">
+                <li>
+                    <span class="h-date">Thu, Nov 26</span>
+                    <span class="h-note">Thanksgiving &middot; Closed</span>
+                </li>
+                <li>
+                    <span class="h-date">Thu &amp; Fri, Dec 24&ndash;25</span>
+                    <span class="h-note">Christmas &middot; Closed</span>
+                </li>
+                <li>
+                    <span class="h-date">Thu, Dec 31</span>
+                    <span class="h-note">New Year&rsquo;s Eve &middot; Close at 5:00 PM</span>
+                </li>
+                <li>
+                    <span class="h-date">Fri, Jan 1</span>
+                    <span class="h-note">New Year&rsquo;s Day &middot; Open at 2:00 PM</span>
+                </li>
+            </ul>
+            <div class="holiday-note">Happy holidays from all of us at Zamliy TCG</div>
+        </div>
+    </div>
+
+    <!-- Slide 3: Black Friday Sale (Nov 27) -->
+    <div class="slide bf-slide">
+        <div class="bf-wrap">
+            <h1 class="bf-title">Black Friday</h1>
+            <div class="bf-when"><span class="bf-dash"></span>Friday, November 27 &middot; Doors open 10 AM</div>
+            <div class="bf-grid">
+                <div class="bf-deal">
+                    <div class="bf-value">15% Off</div>
+                    <div class="bf-label">All Warhammer Products</div>
+                </div>
+                <div class="bf-deal">
+                    <div class="bf-value">15% Off</div>
+                    <div class="bf-label">All Supplies</div>
+                </div>
+                <div class="bf-deal">
+                    <div class="bf-value cream">$119.99</div>
+                    <div class="bf-label">Lorcana &amp; Riftbound</div>
+                    <div class="bf-sub">Booster Boxes &middot; Each</div>
+                </div>
+                <div class="bf-deal">
+                    <div class="bf-value cream">$6.99</div>
+                    <div class="bf-label">Lord of the Rings</div>
+                    <div class="bf-sub">Booster Packs &middot; Limit 6</div>
+                </div>
+            </div>
+            <div class="bf-deckbar">
+                <div class="bf-decktext">
+                    <div class="bf-deckeyebrow">Commander Deck Deal</div>
+                    <div class="bf-deckline">Buy a Commander Deck, Get Dragon Shield Sleeves</div>
+                </div>
+                <div class="bf-free">Free</div>
+            </div>
+            <div class="bf-stock">
+                <div class="bf-stocklabel">Back in stock</div>
+                <div class="bf-stockitems">Reality Fracture Collector Boosters<br>Select Pok&eacute;mon Product</div>
+            </div>
+            <div class="bf-foot"><span>zamliytcg.com</span><span>While supplies last</span></div>
+        </div>
+    </div>
+
+    <!-- Slide 4: Marvel Super Heroes Draft Night (Nov 28) -->
+    <div class="slide promo-slide marvel-slide">
         <div class="promo-content">
-            <img src="logos/onepiece-tcg-logo.png" alt="One Piece Card Game" class="promo-game-logo">
-            <div class="promo-badge">Prerelease</div>
-            <h1 class="promo-title">The Dominance of God</h1>
-            <div class="promo-subtitle">One Piece Card Game &middot; OP-18</div>
+            <img src="logos/magic-logo.svg" alt="Magic: The Gathering" class="promo-game-logo">
+            <div class="promo-badge">Draft Night &middot; This Saturday</div>
+            <h1 class="promo-title">Marvel Super Heroes</h1>
+            <div class="promo-subtitle">Magic: The Gathering &middot; Booster Draft</div>
             <div class="promo-dates">
                 <div class="promo-date-card">
                     <div class="day">Saturday</div>
-                    <div class="date">November 21</div>
-                    <div class="time">6:00 PM</div>
+                    <div class="date">November 28</div>
+                    <div class="time">6:30 PM</div>
                 </div>
                 <div class="promo-date-card">
-                    <div class="day">Sunday</div>
-                    <div class="date">November 22</div>
-                    <div class="time">3:00 PM</div>
+                    <div class="day">Entry</div>
+                    <div class="date">$29.99</div>
                 </div>
             </div>
             <div class="promo-cta">Sign up in person or online at zamliytcg.com</div>
         </div>
-    </div>
-
-    <!-- Slide 3: Draft Night Cancelled (Nov 21) -->
-    <div class="slide promo-slide draft-slide">
-        <div class="promo-content">
-            <img src="logos/magic-logo.svg" alt="Magic: The Gathering" class="promo-game-logo">
-            <div class="promo-badge op-red">Draft Night &middot; Cancelled</div>
-            <h1 class="promo-title">No Draft Tonight</h1>
-            <div class="promo-subtitle">One Piece OP-18 prerelease is sold out &mdash; we&rsquo;re at capacity</div>
-            <div class="promo-dates">
-                <div class="promo-date-card">
-                    <div class="day">Saturday</div>
-                    <div class="date">November 21</div>
-                    <div class="time">Cancelled</div>
-                </div>
-            </div>
-            <div class="promo-cta">Thanks for understanding &mdash; see you next Saturday</div>
+        <div class="marvel-cards">
+            <img src="images/marketing/msh-thor.png" alt="Thor, God of Thunder">
+            <img src="images/marketing/msh-captain-america.png" alt="Captain America, Super-Soldier">
+            <img src="images/marketing/msh-doctor-doom.png" alt="Doctor Doom">
         </div>
     </div>
 
-    <!-- Slide 4: Weekly Events (repeat) -->
+    <!-- Slide 5: Weekly Events (repeat) -->
     <div class="slide">
         <h1>Weekly Event Schedule</h1>
         <ul class="event-list">
@@ -859,7 +1144,7 @@
         </div>
     </div>
 
-    <!-- Slide 5: MTG Draft Night -->
+    <!-- Slide 6: MTG Draft Night -->
     <div class="slide promo-slide draft-slide">
         <div class="promo-content">
             <img src="logos/magic-logo.svg" alt="Magic: The Gathering" class="promo-game-logo">
@@ -877,41 +1162,6 @@
                 </div>
             </div>
             <div class="promo-cta">Sign up in person or online at zamliytcg.com</div>
-        </div>
-    </div>
-    <!-- Slide 6: Holiday Hours -->
-    <div class="slide holiday-slide">
-        <div class="holiday-content">
-            <svg class="holiday-flake" viewBox="0 0 100 100" aria-hidden="true">
-                <g stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none">
-                    <path d="M50 8v84M14 29l72 42M86 29L14 71"/>
-                    <path d="M50 18l-7 7M50 18l7 7M50 82l-7-7M50 82l7-7"/>
-                    <path d="M18 36l9-2M18 36l2 9M82 64l-9 2M82 64l-2-9"/>
-                    <path d="M82 36l-9-2M82 36l-2 9M18 64l9 2M18 64l2-9"/>
-                </g>
-            </svg>
-            <div class="holiday-badge">Holiday Hours</div>
-            <h1 class="holiday-title">Holiday Hours</h1>
-            <div class="holiday-subtitle">Zamliy TCG &middot; November &amp; December</div>
-            <ul class="holiday-list">
-                <li>
-                    <span class="h-date">Thu, Nov 26</span>
-                    <span class="h-note">Thanksgiving &middot; Closed</span>
-                </li>
-                <li>
-                    <span class="h-date">Thu &amp; Fri, Dec 24&ndash;25</span>
-                    <span class="h-note">Christmas &middot; Closed</span>
-                </li>
-                <li>
-                    <span class="h-date">Thu, Dec 31</span>
-                    <span class="h-note">New Year&rsquo;s Eve &middot; Close at 5:00 PM</span>
-                </li>
-                <li>
-                    <span class="h-date">Fri, Jan 1</span>
-                    <span class="h-note">New Year&rsquo;s Day &middot; Open at 2:00 PM</span>
-                </li>
-            </ul>
-            <div class="holiday-note">Happy holidays from all of us at Zamliy TCG</div>
         </div>
     </div>
 
